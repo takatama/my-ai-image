@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI画像生成ハンズオン</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <div id="main-content">
+      <label for="prompt">何をどんな風に描きたいですか？</label>
+      <p class="style-hint">
+        多彩な表現を楽しもう！ポップアート風、油絵風、水彩画風、サイバーパンク風など
+      </p>
+      <textarea
+        id="prompt"
+        placeholder="例: 気持ちよく眠っている猫をポップアート風に"
+      ></textarea>
+      <button id="translate-btn">
+        <span>英語に翻訳</span>
+        <div class="spinner" id="translate-spinner"></div>
+      </button>
+      <p id="translate-error-message" class="error-message"></p>
+      <label for="translated-prompt">翻訳結果</label>
+      <textarea
+        id="translated-prompt"
+        placeholder="ここに英語の翻訳結果が表示されます"
+      ></textarea>
+      <button id="generate-btn">
+        <span>画像を生成</span>
+        <div class="spinner" id="generate-spinner"></div>
+      </button>
+      <p id="generate-error-message" class="error-message"></p>
+      <div id="image-container">
+        <img id="generated-image" src="" alt="Generated Image" />
+      </div>
+    </div>
+  </body>
+</html>
