@@ -53,10 +53,11 @@ async function translateText() {
       credentials: "include",
     });
 
-    if (!response.ok) {
-      const errorData = await response.json();
-      throw new Error("エラー:", errorData.error);
-    }
+    // if (!response.ok) {
+    //   const errorData = await response.json();
+    //   throw new Error("エラー:", errorData.error);
+    // }
+    await verifyResponse(response);
 
     const translatedPrompt = document.getElementById("translated-prompt");
     await handleEventStream(response, translatedPrompt);
@@ -84,10 +85,11 @@ async function generateImage() {
       credentials: "include",
     });
 
-    if (!response.ok) {
-      const errorData = await response.json();
-      throw new Error("エラー:", errorData.error);
-    }
+    // if (!response.ok) {
+    //   const errorData = await response.json();
+    //   throw new Error("エラー:", errorData.error);
+    // }
+    await verifyResponse(response);
 
     const data = await response.json();
     if (data.imageUrl) {
