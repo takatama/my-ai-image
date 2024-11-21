@@ -1,4 +1,6 @@
-export const onRequestPost = [handleGenerateImage];
+import { verifySession } from "../utils/session.js";
+
+export const onRequestPost = [verifySession, handleGenerateImage];
 
 async function handleGenerateImage({ request, env }) {
   const formData = await request.formData();

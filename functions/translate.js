@@ -1,4 +1,6 @@
-export const onRequestPost = [handleTranslate];
+import { verifySession } from "../utils/session.js";
+
+export const onRequestPost = [verifySession, handleTranslate];
 
 async function handleTranslate({ request, env }) {
   const formData = await request.formData();
