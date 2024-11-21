@@ -1,3 +1,6 @@
+// 自分で作成したTurnstileのSite Keyを記入してください
+const SITE_KEY = "0x4AAAAAAAzs018lIIK5s9-R";
+
 async function handleTurnstileResponse(token) {
   const formData = new FormData();
   formData.set("cf-turnstile-response", token);
@@ -14,8 +17,7 @@ async function handleTurnstileResponse(token) {
 
 function initializeTurnstile() {
   turnstile.render("#turnstile-widget", {
-    // 自分で作成したTurnstileのSite Keyを記入してください
-    sitekey: "0x4AAAAAAAzs018lIIK5s9-R",
+    sitekey: SITE_KEY,
     callback: handleTurnstileResponse,
     "error-callback": () => {
       translateBtn.disabled = true;
