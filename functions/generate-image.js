@@ -1,10 +1,11 @@
 import { verifySession } from "../utils/session.js";
+import { sanitize } from "../utils/sanitize.js"; // ** 追加 **
 
 export const onRequestPost = [verifySession, handleGenerateImage];
 
 async function handleGenerateImage({ request, env }) {
   const formData = await request.formData();
-  const prompt = formData.get("prompt");
+  const prompt = sanitize(formData.get("prompt")); // sanitize する
   return await generateImage(prompt, env);
 }
 
